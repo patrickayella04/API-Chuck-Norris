@@ -22,13 +22,9 @@ function loadJokes() {
             }
         }
         
-        loadData();
-    
-        // const resopnseObject = JSON.parse(xhr.responseText)
-        // console.log(resopnseObject);
-    
+        
         xhr.send(null);
-    }, 1000);
+    }, 2000);
     
 };
 
@@ -40,19 +36,42 @@ const data = [
 
 
 
+// function loadData() {
+
+//     setTimeout(function(){
+        
+//         let output = '';
+    
+//         data.forEach(function (data) {
+
+            
+//             console.log(data.job);
+
+            
+//             output += `<li>${data.job}</li>`;
+            
+//         })
+//         document.getElementById('data').innerHTML = output;
+//     }, 2000)
+    
+// };
+
+// function createPost(newData, callback) {
+//     setTimeout(function () {
+//         data.push(newData);
+//         callback();
+//     }, 5000);
+    
+// }
+
+// createPost({ name: 'Benson', job: 'Truck Driver' }, loadData);
+
+// loadData()
+
 function loadData() {
 
     setTimeout(function(){
         
-        // for (let i = 0; i < data.length; i++) {
-    
-            
-            
-        //     console.log(data[i].name);
-    
-        //     document.getElementById('data').innerHTML = (data[i].name);
-        // };
-
         let output = '';
     
         data.forEach(function (data) {
@@ -67,4 +86,24 @@ function loadData() {
         document.getElementById('data').innerHTML = output;
     }, 2000)
     
+};
+
+function createPost(newData) {
+
+    return new Promise ((resolve, reject) =>  {
+        setTimeout(function () {
+            data.push(newData);
+            resolve();
+        }, 1000);
+    })
+        
+
 }
+
+    
+    
+
+
+createPost({ name: 'Benson', job: 'Truck Driver' })
+    .then(loadData);
+

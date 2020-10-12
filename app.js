@@ -90,11 +90,25 @@ function loadData() {
 
 function createPost(newData) {
 
-    return new Promise ((resolve, reject) =>  {
+    return new Promise((resolve, reject) => {
+        
+        
         setTimeout(function () {
+                
             data.push(newData);
-            resolve();
+            const err = true;
+
+            if (!err) {
+                reject(console.log('Error in machine!'))
+            } else {
+                resolve();
+            }
+            
+
         }, 1000);
+        
+
+        
     })
         
 

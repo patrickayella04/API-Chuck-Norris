@@ -121,3 +121,18 @@ function createPost(newData) {
 createPost({ name: 'Benson', job: 'Truck Driver' })
     .then(loadData);
 
+function Car(color, make) {
+    this.color = color;
+    this.make = make;
+
+     this.calculateAgeCar = function (makeYear) {
+        this.makeYear = makeYear;
+        const age = 2020 - makeYear;
+
+        return age;
+    }
+}
+
+const car1 = new Car('blue', 'ford');
+
+console.log(car1.calculateAgeCar(1978));

@@ -136,3 +136,10 @@ function Car(color, make) {
 const car1 = new Car('blue', 'ford');
 
 console.log(car1.calculateAgeCar(1978));
+
+// 
+Car.prototype.getCar = function () {
+    return `This ${this.make} comes in a range of colors. This particular model comes in ${this.color}.`;
+};
+
+console.log(car1.getCar())

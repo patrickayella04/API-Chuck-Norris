@@ -2,7 +2,7 @@ function simpleHttp() {
     this.xhr = new XMLHttpRequest();
 } 
 
-simpleHttp.prototype.get = function (url) {
+simpleHttp.prototype.get = function (url, callback ) {
     setTimeout( () => {
 
         this.xhr.open('GET', url, true);
@@ -12,11 +12,17 @@ simpleHttp.prototype.get = function (url) {
     
                 const resopnseObject = JSON.parse(this.xhr.responseText);
     
-                console.log(resopnseObject);
-            
+                // console.log(resopnseObject);
+                callback(resopnseObject);
+                
                 document.getElementById('jokes').innerHTML = resopnseObject.value.joke;
+
+                return resopnseObject
                 
             }
+
+           
+            
         }
         
         

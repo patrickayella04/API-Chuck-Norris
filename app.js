@@ -188,3 +188,4 @@ class Customer extends Car {
 const customer1 = new Customer('Green', 'Mustang', 'Patrick', 'Nyeko', '111-22-333');
 console.log(customer1);
 console.log(customer1.greeting())
+console.log(customer1.getCar());

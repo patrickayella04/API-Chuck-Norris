@@ -159,6 +159,10 @@ class Car {
 
         return age;
     }
+
+    getCar() {
+        return `This ${this.make} comes in a range of colors. This particular model comes in ${this.color}.`;
+    }
 }
 
 const car1 = new Car('Blue', 'Ford');
@@ -167,3 +171,20 @@ console.log(car1)
 
 console.log(car1.calculateAgeOfCar(1973));
 
+console.log(car1.getCar())
+
+class Customer extends Car {
+    constructor(color, make, firstName, lastName, purchaseNumber) {
+        super(color, make); // Calls parent class constructor
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.purchaseNumber = purchaseNumber;
+    }
+    greeting() {
+        return `Hello ${this.firstName} ${this.lastName}, thank you for placing your order on your new sports ${this.make} in racing ${this.color}. Please remember your purchase number: ${this.purchaseNumber}.`;
+    }
+}
+
+const customer1 = new Customer('Green', 'Mustang', 'Patrick', 'Nyeko', '111-22-333');
+console.log(customer1);
+console.log(customer1.greeting())

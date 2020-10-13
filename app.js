@@ -120,12 +120,40 @@ function createPost(newData) {
 
 createPost({ name: 'Benson', job: 'Truck Driver' })
     .then(loadData);
+//////////////////////////////////////////////////////////////////
 
-function Car(color, make) {
-    this.color = color;
-    this.make = make;
 
-     this.calculateAgeCar = function (makeYear) {
+// function Car(color, make) {
+//     this.color = color;
+//     this.make = make;
+
+//      this.calculateAgeCar = function (makeYear) {
+//         this.makeYear = makeYear;
+//         const age = 2020 - makeYear;
+
+//         return age;
+//     }
+// }
+
+// const car1 = new Car('blue', 'ford');
+
+// console.log(car1.calculateAgeCar(1978));
+
+// // 
+// Car.prototype.getCar = function () {
+//     return `This ${this.make} comes in a range of colors. This particular model comes in ${this.color}.`;
+// };
+
+// console.log(car1.getCar())
+
+
+class Car {
+    constructor(color,make) {
+        this.color = color;
+        this.make = make;
+    }
+
+    calculateAgeOfCar(makeYear) {
         this.makeYear = makeYear;
         const age = 2020 - makeYear;
 
@@ -133,13 +161,9 @@ function Car(color, make) {
     }
 }
 
-const car1 = new Car('blue', 'ford');
+const car1 = new Car('Blue', 'Ford');
 
-console.log(car1.calculateAgeCar(1978));
+console.log(car1)
 
-// 
-Car.prototype.getCar = function () {
-    return `This ${this.make} comes in a range of colors. This particular model comes in ${this.color}.`;
-};
+console.log(car1.calculateAgeOfCar(1973));
 
-console.log(car1.getCar())

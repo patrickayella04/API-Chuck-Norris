@@ -37,6 +37,7 @@ class simpleHttp {
     }
 
     get = function (url, callback) {
+
         setTimeout( () => {
 
             this.xhr.open('GET', url, true);
@@ -47,16 +48,13 @@ class simpleHttp {
                     const resopnseObject = JSON.parse(this.xhr.responseText);
         
                     // console.log(resopnseObject);
-                    callback(resopnseObject);
+                    callback(null, resopnseObject);
                     
                     document.getElementById('jokes').innerHTML = resopnseObject.value.joke;
-    
-                    // return resopnseObject
                     
+                } else {
+                    callback('Error: ' + this.xhr.status)
                 }
-    
-               
-                
             }
             
             
@@ -66,6 +64,48 @@ class simpleHttp {
 }
 
 
+
+// class simpleHttp {
+
+//         constructor() {
+//             this.xhr = new XMLHttpRequest();
+//         }
+
+//         get = function (url) {
+
+//             return new Promise((resolve, reject) => {
+                
+//                 setTimeout(() => {
+
+//                     this.xhr.open('GET', url, true);
+                
+//                     this.xhr.onload = () => {
+
+//                         if (this.xhr.status === 200) {
+                
+//                             const responseObject = JSON.parse(this.xhr.responseText);
+                
+//                             console.log(resopnseObject);
+                            
+                            
+//                             document.getElementById('jokes').innerHTML = resopnseObject.value.joke;
+            
+//                             // return responseObject
+                            
+//                         }
+
+//                         resolve();
+            
+//                     }
+                    
+//                     this.xhr.send(null);
+//                 }, 3000);
+
+//             });
+
+//     }
+
+// }
 
 
 

@@ -28,9 +28,17 @@
 
 const loadJokes = new simpleHttp();
 
-const jokes = loadJokes.get('http://api.icndb.com/jokes/random', function (jokes) {
-    console.log(jokes)
+const jokes = loadJokes.get('http://api.icndb.com/jokes/15', function (err, jokes) {
+    if (err) {
+        console.log(err)
+    } else {
+        console.log(jokes)
+    }
 });
+
+
+    
+
 
 // console.log(jokes)
 

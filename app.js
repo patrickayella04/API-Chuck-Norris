@@ -36,18 +36,24 @@ const loadJokes = new simpleHttp();
 //     }
 // });
 
+const jokes = loadJokes.get('http://api.icndb.com/jokes/15').then(function (post) {
+    console.log(post)
+}).catch(function (error) {
+    console.log(error)
+});
+
 const data = {
     title: 'Custom Post',
     body: 'This is a custom post'
 };
 
-loadJokes.post('https://jsonplaceholder.typicode.com/posts', data, function (err, post) {
-    if (err) {
-        console.log(err)
-    } else {
-        console.log(post)
-    }
-});
+// loadJokes.post('https://jsonplaceholder.typicode.com/posts', data, function (err, post) {
+//     if (err) {
+//         console.log(err)
+//     } else {
+//         console.log(post)
+//     }
+// });
 
 
     

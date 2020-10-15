@@ -28,11 +28,24 @@
 
 const loadJokes = new simpleHttp();
 
-const jokes = loadJokes.get('http://api.icndb.com/jokes/15', function (err, jokes) {
+// const jokes = loadJokes.get('http://api.icndb.com/jokes/15', function (err, jokes) {
+//     if (err) {
+//         console.log(err)
+//     } else {
+//         console.log(jokes)
+//     }
+// });
+
+const data = {
+    title: 'Custom Post',
+    body: 'This is a custom post'
+};
+
+loadJokes.post('https://jsonplaceholder.typicode.com/posts', data, function (err, post) {
     if (err) {
         console.log(err)
     } else {
-        console.log(jokes)
+        console.log(post)
     }
 });
 
@@ -42,7 +55,7 @@ const jokes = loadJokes.get('http://api.icndb.com/jokes/15', function (err, joke
 
 // console.log(jokes)
 
-document.getElementById('findJoke-btn').addEventListener('click', loadJokes);
+// document.getElementById('findJoke-btn').addEventListener('click', loadJokes);
 
 
 

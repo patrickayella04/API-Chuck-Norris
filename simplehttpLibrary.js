@@ -50,7 +50,9 @@ class simpleHttp {
                     // console.log(resopnseObject);
                     callback(null, resopnseObject);
                     
-                    document.getElementById('jokes').innerHTML = resopnseObject.value.joke;
+                    // document.getElementById('jokes').innerHTML = resopnseObject.value.joke;
+
+                    document.getElementById('jokes').innerHTML = resopnseObject;
                     
                 } else {
                     callback('Error: ' + this.xhr.status)
@@ -61,6 +63,23 @@ class simpleHttp {
             this.xhr.send(null);
         }, 3000);
     }
+
+    post = function (url, data, callback) {
+
+        this.xhr.open('POST', url, true);
+
+        this.xhr.setRequestHeader('Content-type', 'application/json');
+        
+        let self = this;
+        this.xhr.onload = function () {
+                    
+            callback(null, self.xhr.responseText);
+                    
+        }
+        
+        this.xhr.send(JSON.stringify(data));
+    }
+
 }
 
 

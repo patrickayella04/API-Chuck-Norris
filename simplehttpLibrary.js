@@ -104,12 +104,6 @@ get = function (url) {
                         reject('Error: ' + this.xhr.status);
                     }
                     
-                    
-                    
-    
-                    
-                    
-               
             }
             
             
@@ -135,10 +129,10 @@ post = function (url, data, callback) {
 
     this.xhr.setRequestHeader('Content-type', 'application/json');
     
-    let self = this;
-    this.xhr.onload = function () {
+    // let self = this;
+    this.xhr.onload = () => {
                 
-        callback(null, self.xhr.responseText);
+        callback(null, this.xhr.responseText);
                 
     }
     

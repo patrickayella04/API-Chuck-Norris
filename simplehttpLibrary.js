@@ -31,10 +31,11 @@
 // }
 
 
+
 class simpleHttp {
-    constructor() {
-        this.xhr = new XMLHttpRequest();
-    }
+    // constructor() {
+    //     this.xhr = new XMLHttpRequest();
+    // }
 
 //     get = function (url, callback) {
 
@@ -59,10 +60,48 @@ class simpleHttp {
 //                 }
 //             }
             
-            
 //             this.xhr.send(null);
 //         }, 3000);
 //     }
+    
+    
+// get = function (url) {
+
+//     return new Promise((resolve, reject) => {
+//         setTimeout( () => {
+
+//             this.xhr.open('GET', url, true);
+        
+//             this.xhr.onload = () => {
+                
+//                 if (this.xhr.status === 200) {
+//                 const resopnseObject = JSON.parse(this.xhr.responseText);
+//                     resolve(resopnseObject);
+//                 } else {
+//                     reject('Error: ' + this.xhr.status);
+//                 } 
+//             }
+            
+//             this.xhr.send(null);
+//         }, 3000);
+//     })
+    
+// }
+    
+    get (url) {
+            
+
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                    fetch(url)
+                        .then(response => response.json())
+                        .then(data => resolve(data.value.joke))
+                    .catch(error => reject(error));
+                })
+        });
+                    
+    };
+
 
 //     post = function (url, data, callback) {
 
@@ -84,60 +123,22 @@ class simpleHttp {
     
     
     
+
+// post = function (url, data, callback) {
+
+//     this.xhr.open('POST', url, true);
+
+//     this.xhr.setRequestHeader('Content-type', 'application/json');
     
-get = function (url) {
-
-    return new Promise((resolve, reject) => {
-        setTimeout( () => {
-
-            this.xhr.open('GET', url, true);
-        
-            this.xhr.onload = () => {
+//     // let self = this;
+//     this.xhr.onload = () => {
                 
-        
-                    
-        
-                if (this.xhr.status === 200) {
-                    const resopnseObject = JSON.parse(this.xhr.responseText);
-                        resolve(resopnseObject);
-                    } else {
-                        reject('Error: ' + this.xhr.status);
-                    }
-                    
-            }
-            
-            
-            this.xhr.send(null);
-        }, 3000);
-    })
-    
-}
-    
-
-
-
-
-
-
-
-
-
-
-post = function (url, data, callback) {
-
-    this.xhr.open('POST', url, true);
-
-    this.xhr.setRequestHeader('Content-type', 'application/json');
-    
-    // let self = this;
-    this.xhr.onload = () => {
+//         callback(null, this.xhr.responseText);
                 
-        callback(null, this.xhr.responseText);
-                
-    }
+//     }
     
-    this.xhr.send(JSON.stringify(data));
-}
+//     this.xhr.send(JSON.stringify(data));
+// }
 
 }
 

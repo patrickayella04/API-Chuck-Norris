@@ -43,7 +43,7 @@ const loadJokes = new simpleHttp();
 // });
 
 loadJokes.get('http://api.icndb.com/jokes/15').then((joke) => {
-    console.log(joke)
+    document.getElementById('jokes').innerHTML = joke;
 }).catch((error) => {
     console.log(error)
 });
@@ -68,7 +68,7 @@ const data = {
 
 // console.log(jokes)
 
-// document.getElementById('findJoke-btn').addEventListener('click', loadJokes);
+document.getElementById('findJoke-btn').addEventListener('click', loadJokes);
 
 
 

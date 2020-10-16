@@ -93,10 +93,12 @@ class simpleHttp {
 
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                    fetch(url)
-                        .then(response => response.json())
-                        .then(data => resolve(data.value.joke))
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => resolve(data.value.joke))
+
                     .catch(error => reject(error));
+                    
                 })
         });
                     

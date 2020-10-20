@@ -42,11 +42,32 @@ const loadJokes = new simpleHttp();
 //     console.log(error)
 // });
 
-loadJokes.get('http://api.icndb.com/jokes/15').then((joke) => {
-    document.getElementById('jokes').innerHTML = joke;
-}).catch((error) => {
-    console.log(error)
+// loadJokes.get('http://api.icndb.com/jokes/15').then((joke) => {
+//     document.getElementById('jokes').innerHTML = joke;
+//     console.log(joke);
+// }).catch((error) => {
+//     console.log(error)
+// });
+// const getJoke = loadJokes.get('http://api.icndb.com/jokes/random').then((joke) => {
+    
+//     console.log(joke);
+// }).catch((error) => {
+//     console.log(error)
+// });
+
+document.getElementById('findJoke-btn').addEventListener('click', function () {
+    
+    loadJokes.get('http://api.icndb.com/jokes/random').then((joke) => {
+        document.getElementById('jokes').innerHTML = joke;
+        console.log(joke);
+    }).catch((error) => {
+        console.log(error)
+    });
+    
 });
+
+
+
 
 
 const data = {
@@ -68,7 +89,7 @@ const data = {
 
 // console.log(jokes)
 
-document.getElementById('findJoke-btn').addEventListener('click', loadJokes);
+// document.getElementById('findJoke-btn').addEventListener('click', loadJokes);
 
 
 

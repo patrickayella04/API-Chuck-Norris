@@ -72,7 +72,14 @@ const data = {
         body: 'Why did the chicken cross road? It wanted to'
 }
 
-loadJokes.post('https://jsonplaceholder.typicode.com/posts', data)
+// loadJokes.post('https://jsonplaceholder.typicode.com/posts', data)
+//         .then((data) => {
+//         console.log(data);
+//     }).catch((error) => {
+//         console.log(error)
+//     });
+
+loadJokes.put('https://jsonplaceholder.typicode.com/users/2', data)
         .then((data) => {
         console.log(data);
     }).catch((error) => {

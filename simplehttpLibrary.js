@@ -125,6 +125,27 @@ class simpleHttp {
     
     }
 
+    put(url, data) {
+
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                fetch(url, {
+                    method: 'PUT', 
+                    headers: {
+                        'Content-type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                    .then(response => response.json())
+                    .then(data => resolve(data))
+                    .catch(error => reject(error));
+            })
+            
+            
+        });
+    
+    }
+
 
 //     post = function (url, data, callback) {
 

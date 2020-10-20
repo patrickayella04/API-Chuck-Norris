@@ -55,25 +55,36 @@ const loadJokes = new simpleHttp();
 //     console.log(error)
 // });
 
-document.getElementById('findJoke-btn').addEventListener('click', function () {
+// document.getElementById('findJoke-btn').addEventListener('click', function () {
     
-    loadJokes.get('http://api.icndb.com/jokes/random').then((joke) => {
-        document.getElementById('jokes').innerHTML = joke;
-        console.log(joke);
+//     loadJokes.get('http://api.icndb.com/jokes/random')
+//         .then((joke) => {
+//         document.getElementById('jokes').innerHTML = joke;
+//         console.log(joke);
+//     }).catch((error) => {
+//         console.log(error)
+//     });
+    
+// });
+
+const data = {
+        title: 'Patrick Nyeko',
+        body: 'Why did the chicken cross road? It wanted to'
+}
+
+loadJokes.post('https://jsonplaceholder.typicode.com/posts', data)
+        .then((data) => {
+        console.log(data);
     }).catch((error) => {
         console.log(error)
     });
-    
-});
 
 
 
-
-
-const data = {
-    title: 'Custom Post',
-    body: 'This is a custom post'
-};
+// const data = {
+//     title: 'Custom Post',
+//     body: 'This is a custom post'
+// };
 
 // loadJokes.post('https://jsonplaceholder.typicode.com/posts', data, function (err, post) {
 //     if (err) {

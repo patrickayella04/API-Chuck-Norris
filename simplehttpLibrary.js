@@ -95,7 +95,8 @@ class simpleHttp {
             setTimeout(() => {
                 fetch(url)
                     .then(response => response.json())
-                    .then(data => resolve(data.value.joke))
+                    // .then(data => resolve(data.value.joke))
+                    .then(data => resolve(data))
                     .catch(error => reject(error));
             })
             
@@ -145,6 +146,28 @@ class simpleHttp {
         });
     
     }
+
+    delete(url, data) {
+
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                fetch(url, {
+                    method: 'DELETE', 
+                    headers: {
+                        'Content-type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                    .then(response => response.json())
+                    .then(() => resolve('Resource Deleted...'))
+                    .catch(error => reject(error));
+            }, 3000)
+            
+            
+        })
+    
+    }
+
 
 
 //     post = function (url, data, callback) {

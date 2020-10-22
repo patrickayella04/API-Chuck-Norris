@@ -55,6 +55,7 @@ const loadJokes = new simpleHttp();
 //     console.log(error)
 // });
 
+// Get post
 // document.getElementById('findJoke-btn').addEventListener('click', function () {
     
 //     loadJokes.get('http://api.icndb.com/jokes/random')
@@ -68,23 +69,45 @@ const loadJokes = new simpleHttp();
 // });
 
 const data = {
-        title: 'Patrick Nyeko',
-        body: 'Why did the chicken cross road? It wanted to'
+    email: 'patrickayella04@gmail.com',
+    body: 'Why did the chicken cross the road? It wanted to',
+    name: 'Patrick Nyeko',
+    username: 'patnyeko'
 }
 
-// loadJokes.post('https://jsonplaceholder.typicode.com/posts', data)
-//         .then((data) => {
-//         console.log(data);
-//     }).catch((error) => {
-//         console.log(error)
-//     });
+// // Get post (placehoder)
+loadJokes.get('https://jsonplaceholder.typicode.com/users')
+        .then((data) => {
+        console.log(data);
+    }).catch((error) => {
+        console.log(error)
+    });
 
+
+// Create Post
+loadJokes.post('https://jsonplaceholder.typicode.com/users', data)
+        .then((data) => {
+        console.log(data);
+    }).catch((error) => {
+        console.log(error)
+    });
+
+//Update Post
 loadJokes.put('https://jsonplaceholder.typicode.com/users/2', data)
         .then((data) => {
         console.log(data);
     }).catch((error) => {
         console.log(error)
     });
+
+
+
+// loadJokes.delete('https://jsonplaceholder.typicode.com/users/2', data)
+//         .then((data) => {
+//         console.log(data);
+//     }).catch((error) => {
+//         console.log(error)
+//     });
 
 
 

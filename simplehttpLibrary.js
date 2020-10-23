@@ -88,84 +88,127 @@ class simpleHttp {
     
 // }
     
-    get (url) {
+    // get (url) {
             
 
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                fetch(url)
-                    .then(response => response.json())
-                    // .then(data => resolve(data.value.joke))
-                    .then(data => resolve(data))
-                    .catch(error => reject(error));
-            })
+    //     return new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //             fetch(url)
+    //                 .then(response => response.json())
+    //                 // .then(data => resolve(data.value.joke))
+    //                 .then(data => resolve(data))
+    //                 .catch(error => reject(error));
+    //         })
             
             
-        });
+    //     });
                     
+    // };
+
+    async get(url) {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data         
     };
 
-    post(url, data) {
 
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                fetch(url, {
-                    method: 'POST', 
-                    headers: {
-                        'Content-type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                })
-                    .then(response => response.json())
-                    .then(data => resolve(data))
-                    .catch(error => reject(error));
-            })
+    // post(url, data) {
+
+    //     return new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //             fetch(url, {
+    //                 method: 'POST', 
+    //                 headers: {
+    //                     'Content-type': 'application/json'
+    //                 },
+    //                 body: JSON.stringify(data)
+    //             })
+    //                 .then(response => response.json())
+    //                 .then(data => resolve(data))
+    //                 .catch(error => reject(error));
+    //         })
             
             
-        });
+    //     });
     
-    }
-
-    put(url, data) {
-
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                fetch(url, {
-                    method: 'PUT', 
-                    headers: {
-                        'Content-type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                })
-                    .then(response => response.json())
-                    .then(data => resolve(data))
-                    .catch(error => reject(error));
-            })
-            
-            
-        });
-    
-    }
-
-    delete(url, data) {
-
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                fetch(url, {
-                    method: 'DELETE', 
-                    headers: {
-                        'Content-type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                })
-                    .then(response => response.json())
-                    .then(() => resolve('Resource Deleted...'))
-                    .catch(error => reject(error));
-            }, 3000)
-            
-            
+    // }
+    async post(url, data) {
+        const response = await fetch(url, {
+            method: 'POST', 
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
         })
+        const resData = await response.json();
+        return resData;
+    }
+
+
+    // put(url, data) {
+
+    //     return new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //             fetch(url, {
+    //                 method: 'PUT', 
+    //                 headers: {
+    //                     'Content-type': 'application/json'
+    //                 },
+    //                 body: JSON.stringify(data)
+    //             })
+    //                 .then(response => response.json())
+    //                 .then(data => resolve(data))
+    //                 .catch(error => reject(error));
+    //         })
+            
+            
+    //     });
     
+    // }
+
+    async put(url, data) {
+        const response = await fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+        const resData = await response.json();
+        return resData;
+    }
+
+    // delete(url, data) {
+
+    //     return new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //             fetch(url, {
+    //                 method: 'DELETE', 
+    //                 headers: {
+    //                     'Content-type': 'application/json'
+    //                 },
+    //                 body: JSON.stringify(data)
+    //             })
+    //                 .then(response => response.json())
+    //                 .then(() => resolve('Resource Deleted...'))
+    //                 .catch(error => reject(error));
+    //         }, 3000)
+            
+            
+    //     })
+    
+    // }
+    async delete(url, data) {
+        
+        const response = await fetch(url, {
+            method: 'DELETE', 
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        const resData = 'Resource Deleted...';
+        return resData;   
     }
 
 

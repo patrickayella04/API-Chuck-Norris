@@ -67,7 +67,7 @@ const loadJokes = new simpleHttp();
 //     });
     
 // });
-
+///////////////////////////////////////////////////////////////////
 const data = {
     email: 'patrickayella04@gmail.com',
     body: 'Why did the chicken cross the road? It wanted to',
@@ -75,7 +75,7 @@ const data = {
     username: 'patnyeko'
 }
 
-// // Get post (placehoder)
+// Get post (placehoder)
 loadJokes.get('https://jsonplaceholder.typicode.com/users')
         .then((data) => {
         console.log(data);
@@ -84,25 +84,18 @@ loadJokes.get('https://jsonplaceholder.typicode.com/users')
     });
 
 
+
+
 // Create Post
-loadJokes.post('https://jsonplaceholder.typicode.com/users', data)
-        .then((data) => {
-        console.log(data);
-    }).catch((error) => {
-        console.log(error)
-    });
+// loadJokes.post('https://jsonplaceholder.typicode.com/users', data)
+//         .then((data) => {
+//         console.log(data);
+//     }).catch((error) => {
+//         console.log(error)
+//     });
 
 //Update Post
-loadJokes.put('https://jsonplaceholder.typicode.com/users/2', data)
-        .then((data) => {
-        console.log(data);
-    }).catch((error) => {
-        console.log(error)
-    });
-
-
-
-// loadJokes.delete('https://jsonplaceholder.typicode.com/users/2', data)
+// loadJokes.put('https://jsonplaceholder.typicode.com/users/2', data)
 //         .then((data) => {
 //         console.log(data);
 //     }).catch((error) => {
@@ -111,6 +104,15 @@ loadJokes.put('https://jsonplaceholder.typicode.com/users/2', data)
 
 
 
+loadJokes.delete('https://jsonplaceholder.typicode.com/users/2', data)
+        .then((data) => {
+        console.log(data);
+    }).catch((error) => {
+        console.log(error)
+    });
+
+
+///////////////////////////////////////////////////////////////
 // const data = {
 //     title: 'Custom Post',
 //     body: 'This is a custom post'
@@ -297,3 +299,53 @@ loadJokes.put('https://jsonplaceholder.typicode.com/users/2', data)
 // console.log(customer1);
 // console.log(customer1.greeting())
 // console.log(customer1.getCar());
+
+
+
+////////////////////////////////////////////////////
+// async await 
+
+// async function myFunc() {
+    // return 'Hello, Patrick';
+    // If we do anything asyncrhonous in here we can use 'await' to wait until its resolved.
+    
+    ///////////////////////////////////
+    // My way - still works 
+    // const promise = new Promise((resolve, reject) => {
+
+    // const error = false;
+    // if (!error) {
+    //     setTimeout(() => resolve('Hello'), 1000);
+    // } else {
+    //     reject(console.log('Error has occured...'))
+    // }
+    // });
+
+    // const res = await promise; // Wait until promise is resolved. 
+    
+    // return res;
+    /////////////////////////////////////////////////////////
+    // Second way
+    // const promise = new Promise((resolve, reject) => {
+    //     setTimeout(() => resolve('Hello'), 1000);
+    // });
+
+    // const error = false;
+
+    // if (!error) {
+    //     const response = await promise; // Wait until promise is resolved
+//         return response;
+//     } else {
+//         await Promise.reject(new Error('Something went wrong...'))
+//     }
+
+
+
+
+// }
+
+// myFunc()
+//     .then(response => console.log(response))
+//     .catch(error => console.log(error))
+
+
